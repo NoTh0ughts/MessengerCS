@@ -29,6 +29,9 @@ namespace Messenger
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers()
+                .AddNewtonsoftJson(x =>  x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            
             services.AddEntityFrameworkMySql()
                 .AddDbContext<MessengerContext>()
                 .AddUnitOfWork<MessengerContext>()

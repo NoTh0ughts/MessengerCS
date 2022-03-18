@@ -65,3 +65,6 @@ C:\Users\Hello\source\repos\Messenger\obj\Debug\net60\refint\Messenger.dll
 C:\Users\Hello\source\repos\Messenger\obj\Debug\net60\Messenger.pdb
 C:\Users\Hello\source\repos\Messenger\obj\Debug\net60\Messenger.genruntimeconfig.cache
 C:\Users\Hello\source\repos\Messenger\obj\Debug\net60\ref\Messenger.dll
+C:\Users\Hello\source\repos\Messenger\bin\Debug\net60\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Hello\source\repos\Messenger\bin\Debug\net60\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Hello\source\repos\Messenger\bin\Debug\net60\Newtonsoft.Json.Bson.dll

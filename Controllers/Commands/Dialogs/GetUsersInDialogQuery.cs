@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Messenger.Controllers.Commands.Dialogs
 {
-    public class GetUsersInDialogQuery: IRequest<IEnumerable<User>>
+    public class GetUsersInDialogQuery: IRequest<IEnumerable<string>>
     {
         public int DialogId { get; set; }
         
-        public class GetUsersInDialogQueryHandler : IRequestHandler<GetUsersInDialogQuery, IEnumerable<User>>
+        public class GetUsersInDialogQueryHandler : IRequestHandler<GetUsersInDialogQuery, IEnumerable<string>>
         {
             private readonly IUnitOfWork<MessengerContext> _unitOfWork;
 
@@ -23,14 +23,14 @@ namespace Messenger.Controllers.Commands.Dialogs
             }
 
 
-            public async Task<IEnumerable<User>> Handle(GetUsersInDialogQuery request, CancellationToken cancellationToken = default)
+            public async Task<IEnumerable<string>> Handle(GetUsersInDialogQuery request, CancellationToken cancellationToken = default)
             {
                 if (request.DialogId > 0)
                 {
-                    return await _unitOfWork.DbContext.UserAccesses
-                        .Where(ud => ud.DialogId == request.DialogId)
-                        .Select(ud => ud.User)
-                        .ToListAsync(cancellationToken);
+                    return await (from ua in _unitOfWork.DbContext.UserAccesses
+                        join u in _unitOfWork.DbContext.Users on ua.UserId equals u.Id
+                        where ua.DialogId == request.DialogId
+                        select u.Name).ToListAsync();
                 }
 
                 return null;

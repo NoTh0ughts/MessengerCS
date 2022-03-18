@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Messenger.DB.entity;
 using Messenger.Host.UnitOfWork;
+using Microsoft.EntityFrameworkCore;
 
 namespace Messenger.Controllers.Commands.Dialogs
 {
@@ -27,10 +28,10 @@ namespace Messenger.Controllers.Commands.Dialogs
             {
                 if (request.UserId > 0 && request.DialogId > 0)
                 {
-                    return _unitOfWork.DbContext.UserAccesses
-                        .First(ud => ud.DialogId == request.DialogId && ud.UserId == request.UserId)
-                        .Messages
-                        .AsEnumerable();
+                    return await (from ua in _unitOfWork.DbContext.UserAccesses
+                        join m in _unitOfWork.DbContext.Messages on ua.Id equals m.UserAccessId
+                        where ua.DialogId == request.DialogId && ua.UserId == request.UserId
+                        select m).ToListAsync();
                 }
 
                 return null;

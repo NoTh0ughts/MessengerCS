@@ -7,6 +7,7 @@
     <e p="C:\Users\Hello\source\repos\Messenger" t="IncludeRecursive">
       <e p=".dockerignore" t="Include" />
       <e p=".env" t="Include" />
+      <e p=".git\info\exclude" t="IncludeRecursive" />
       <e p=".gitattributes" t="Include" />
       <e p=".gitignore" t="Include" />
       <e p="appsettings.Development.json" t="Include" />
@@ -34,31 +35,37 @@
         <e p="DialogController.cs" t="Include" />
         <e p="SettingsController.cs" t="Include" />
       </e>
-      <e p="DB.entity" t="Include">
-        <e p="Bot.cs" t="Include" />
-        <e p="Call.cs" t="Include" />
-        <e p="Command.cs" t="Include" />
-        <e p="Content.cs" t="Include" />
-        <e p="Dialog.cs" t="Include" />
-        <e p="Message.cs" t="Include" />
-        <e p="MessageSticker.cs" t="Include" />
-        <e p="MessengerContext.cs" t="Include" />
-        <e p="Parameter.cs" t="Include" />
-        <e p="Parametr.cs" t="Include" />
-        <e p="Setting.cs" t="Include" />
-        <e p="Sticker.cs" t="Include" />
-        <e p="StickersMessage.cs" t="Include" />
-        <e p="User.cs" t="Include" />
-        <e p="UserAccess.cs" t="Include" />
-        <e p="UserDialog.cs" t="Include" />
-        <e p="Value.cs" t="Include" />
-      </e>
-      <e p="Dockerfile" t="Include" />
-      <e p="Host" t="Include">
-        <e p="Extensions" t="Include">
-          <e p="ServiceExtensions.cs" t="Include" />
+      <e p="Data" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Data.csproj" t="IncludeRecursive" />
+        <e p="Entity" t="Include">
+          <e p="Bot.cs" t="Include" />
+          <e p="Call.cs" t="Include" />
+          <e p="Command.cs" t="Include" />
+          <e p="Content.cs" t="Include" />
+          <e p="Dialog.cs" t="Include" />
+          <e p="Message.cs" t="Include" />
+          <e p="MessageSticker.cs" t="Include" />
+          <e p="MessengerContext.cs" t="Include" />
+          <e p="Parameter.cs" t="Include" />
+          <e p="Parametr.cs" t="Include" />
+          <e p="Setting.cs" t="Include" />
+          <e p="Sticker.cs" t="Include" />
+          <e p="StickersMessage.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+          <e p="UserAccess.cs" t="Include" />
+          <e p="UserDialog.cs" t="Include" />
+          <e p="Value.cs" t="Include" />
         </e>
-        <e p="Repository" t="Include">
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net6.0" t="Include">
+              <e p="Data.AssemblyInfo.cs" t="Include" />
+              <e p="Data.GlobalUsings.g.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="repos" t="Include">
           <e p="GenericRepository.cs" t="Include" />
           <e p="IGenericRepository.cs" t="Include" />
           <e p="IRepositoryFactory.cs" t="Include" />
@@ -67,6 +74,14 @@
           <e p="IUnitOfWork.cs" t="Include" />
           <e p="UnitOfWork.cs" t="Include" />
         </e>
+      </e>
+      <e p="DB.entity" t="Include" />
+      <e p="Dockerfile" t="Include" />
+      <e p="Host" t="Include">
+        <e p="Extensions" t="Include">
+          <e p="ServiceExtensions.cs" t="Include" />
+        </e>
+        <e p="UnitOfWork" t="Include" />
       </e>
       <e p="Messenger.csproj" t="IncludeRecursive" />
       <e p="Messenger.sln" t="IncludeFlat" />

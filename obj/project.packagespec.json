@@ -15,7 +15,11 @@
     },
     "frameworks": {
       "netcoreapp6.0": {
-        "projectReferences": {}
+        "projectReferences": {
+          "C:\\Users\\Hello\\source\\repos\\Messenger\\Data\\Data.csproj": {
+            "projectPath": "C:\\Users\\Hello\\source\\repos\\Messenger\\Data\\Data.csproj"
+          }
+        }
       }
     },
     "warningProperties": {
@@ -38,6 +42,10 @@
         "MediatR.Extensions.Microsoft.DependencyInjection": {
           "target": "Package",
           "version": "[10.0.1, )"
+        },
+        "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+          "target": "Package",
+          "version": "[5.0.0, )"
         },
         "Microsoft.EntityFrameworkCore": {
           "target": "Package",
