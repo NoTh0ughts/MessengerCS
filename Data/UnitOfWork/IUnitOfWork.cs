@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Messenger.Host.Repository;
+using Data.Repos;
 using Microsoft.EntityFrameworkCore;
 
-namespace Messenger.Host.UnitOfWork
+namespace Data.UnitOfWork
 {
     /// <summary>
     /// Определяет интерфейс для обобщенного IUnitOfWork

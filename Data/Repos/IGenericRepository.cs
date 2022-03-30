@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Messenger.Host.Repository
+namespace Data.Repos
 {
     /// <summary>
     /// Интерфейс для сущностей, управляемых репозиториями

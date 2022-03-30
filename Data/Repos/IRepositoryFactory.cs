@@ -1,4 +1,4 @@
-﻿namespace Messenger.Host.Repository
+﻿namespace Data.Repos
 {
     public interface IRepositoryFactory
     {

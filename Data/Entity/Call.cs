@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 
 #nullable disable
 
-namespace Messenger.DB.entity
+namespace Data.Entity
 {
     public partial class Call
     {

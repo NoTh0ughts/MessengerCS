@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace Messenger.Host.Repository
+namespace Data.Repos
 {
     /// <summary>
     /// Класс - репозиторий для классов сущностей
