@@ -23,230 +23,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d4c024a-7f0d-4c53-a375-55a972157771" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Auth/Auth.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/Configs/AuthOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/Controllers/AuthController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/Controllers/AuthOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/Service/Startup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auth/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Entity/UserDTO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/HostExtensions/ServiceExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Auth/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Auth/DockerFile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Auth/Dockerfile.original" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.dcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.override.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Messenger/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Messenger/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Messenger/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Messenger/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Messenger/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Messenger/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Messenger/.idea/dataSources/6e60c955-45bd-42e8-a1ed-3097e4cbdd0c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Messenger/.idea/dataSources/6e60c955-45bd-42e8-a1ed-3097e4cbdd0c/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Messenger/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Messenger/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Messenger/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Messenger/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/Messenger/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Messenger/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/BotController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Commands/Bot/BotCommand/GetBotCommandsQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Commands/Bot/GetBotQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Commands/Dialogs/GetCallsInDialogQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Commands/Dialogs/GetUsedStickersInDialogQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Commands/Dialogs/GetUserMessagesInDialogQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Commands/Dialogs/GetUsersInDialogQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Commands/Settings/GetUsersWithParameterQuery.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/DialogController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/SettingsController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Data.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Data.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/Bot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/Bot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/Call.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/Call.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/Command.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/Content.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/Content.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/Dialog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/Dialog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/Message.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/MessageSticker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/MessageSticker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/MessengerContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/MessengerContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/Parameter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/Parameter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/Parametr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/Parametr.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/Setting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/Setting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/Sticker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/Sticker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/StickersMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/StickersMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/UserAccess.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/UserAccess.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/UserDialog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/UserDialog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Entity/Value.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Entity/Value.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Repos/GenericRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Repos/GenericRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Repos/IGenericRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Repos/IGenericRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Repos/IRepositoryFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Repos/IRepositoryFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UnitOfWork/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UnitOfWork/IUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UnitOfWork/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UnitOfWork/UnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Host/Extensions/ServiceExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Messenger.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Messenger.csproj.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auth/Auth.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/Auth.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auth/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/Properties/launchSettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Messenger.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Messenger.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/ConfigLoader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/Startup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/BouncyCastle.Crypto.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/EntityFramework.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Google.Protobuf.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Humanizer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/K4os.Compression.LZ4.Streams.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/K4os.Compression.LZ4.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/K4os.Hash.xxHash.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/MediatR.Extensions.Microsoft.DependencyInjection.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/MediatR.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Messenger.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Messenger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Messenger.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Messenger.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Messenger.runtimeconfig.dev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Messenger.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Relational.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Microsoft.Extensions.DependencyInjection.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Microsoft.OpenApi.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/MySql.Data.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/MySql.EntityFrameworkCore.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/MySqlConnector.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Pomelo.EntityFrameworkCore.MySql.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Swashbuckle.AspNetCore.Swagger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/System.Configuration.ConfigurationManager.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/System.Diagnostics.DiagnosticSource.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/System.Runtime.CompilerServices.Unsafe.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/System.Security.Cryptography.ProtectedData.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Ubiety.Dns.Core.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/ZstdNet.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/BouncyCastle.Crypto.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/EntityFramework.SqlServer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/EntityFramework.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Google.Protobuf.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Humanizer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/K4os.Compression.LZ4.Streams.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/K4os.Compression.LZ4.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/K4os.Hash.xxHash.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/MediatR.Contracts.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/MediatR.Extensions.Microsoft.DependencyInjection.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/MediatR.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Messenger.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Messenger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Messenger.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Messenger.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Messenger.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Microsoft.EntityFrameworkCore.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Microsoft.EntityFrameworkCore.Design.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Microsoft.EntityFrameworkCore.Relational.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Microsoft.EntityFrameworkCore.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Microsoft.OpenApi.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Microsoft.Win32.SystemEvents.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/MySql.Data.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/MySql.EntityFrameworkCore.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/MySqlConnector.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Pomelo.EntityFrameworkCore.MySql.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Swashbuckle.AspNetCore.Swagger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Swashbuckle.AspNetCore.SwaggerGen.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Swashbuckle.AspNetCore.SwaggerUI.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/System.CodeDom.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/System.Configuration.ConfigurationManager.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/System.Data.SqlClient.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/System.Drawing.Common.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/System.Security.Cryptography.ProtectedData.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/System.Security.Permissions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/System.Windows.Extensions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/Ubiety.Dns.Core.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/ZstdNet.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/runtimes/win-arm64/native/sni.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/runtimes/win-x64/native/sni.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/runtimes/win-x86/native/sni.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net60/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/AbsoluteOutputAssemblyPath.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/AdditionalProbingPaths.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/ContainerDevelopmentMode.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/ContainerId.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/ContainerName.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/ContainerOperatingSystemFlavor.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/ContainerRunContext.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/DebuggeeArguments.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/DebuggeeKillProcessCommand.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/DebuggeeProgram.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/DebuggeeWorkingDirectory.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/FastModeProjectMountDirectory.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/ImageBuildContext.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/ImageId.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/OperatingSystemName.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/TargetFramework.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Container/VsDbgScript.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.MvcApplicationPartsAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.RazorTargetAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.csproj.CopyComplete" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Messenger.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/apphost.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/ref/Messenger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/refint/Messenger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/staticwebassets/Messenger.StaticWebAssets.Manifest.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/Messenger.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/Messenger.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/Messenger.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/Messenger.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/Messenger.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.MvcApplicationPartsAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.csproj.CopyComplete" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/Messenger.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/apphost.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/ref/Messenger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/refint/Messenger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net60/staticwebassets.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Messenger.csproj.EntityFrameworkCore.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Messenger.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Messenger.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Messenger.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/staticwebassets.pack.sentinel" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,10 +53,15 @@
         <option value="$PROJECT_DIR$/../../../../../Program Files/dotnet/sdk/6.0.201/Current/Microsoft.Common.props" />
         <option value="$PROJECT_DIR$/Data/Data.csproj" />
         <option value="$PROJECT_DIR$/Data/HostExtensions/ServiceExtensions.cs" />
-        <option value="$PROJECT_DIR$/Auth/Auth.csproj" />
-        <option value="$PROJECT_DIR$/Auth/Controllers/AuthController.cs" />
         <option value="$PROJECT_DIR$/Auth/Controllers/AuthOptions.cs" />
         <option value="$PROJECT_DIR$/Auth/Service/Startup.cs" />
+        <option value="$PROJECT_DIR$/Auth/Controllers/AuthController.cs" />
+        <option value="$PROJECT_DIR$/Auth/DockerFile" />
+        <option value="$PROJECT_DIR$/Auth/.dockerignore" />
+        <option value="$PROJECT_DIR$/Auth/Properties/launchSettings.json" />
+        <option value="$PROJECT_DIR$/Auth/Auth.csproj" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/Auth/Dockerfile" />
       </list>
     </option>
   </component>
@@ -280,6 +74,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.CSharpInteractiveConfiguration" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -325,6 +120,7 @@
       <updated>1648664824808</updated>
       <workItem from="1648664831685" duration="3013000" />
       <workItem from="1648671856486" duration="66000" />
+      <workItem from="1648671983507" duration="5615000" />
     </task>
     <servers />
   </component>
@@ -349,10 +145,22 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="728" y="250" width="675" height="579" key="#Docker" timestamp="1648681625674">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="728" y="250" width="675" height="579" key="#Docker/-1920.7.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1648681625674" />
+    <state x="552" y="181" key="#Plugins" timestamp="1648681865379">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="552" y="181" key="#Plugins/-1920.7.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1648681865379" />
     <state x="552" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1648667698448">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.7.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1648667698448" />
+    <state x="717" y="342" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1648681929979">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="717" y="342" key="#com.intellij.fileTypes.FileTypeChooser/-1920.7.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1648681929979" />
     <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1648667870539">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -369,9 +177,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="295" key="GridCell.Tab.0.right/-1920.7.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1648667870539" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1648666819278">
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1648681820792">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/-1920.7.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1648666819278" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/-1920.7.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1648681820792" />
   </component>
 </project>

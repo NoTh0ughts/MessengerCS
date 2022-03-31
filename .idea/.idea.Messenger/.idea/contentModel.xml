@@ -5,9 +5,11 @@
     <e p="C:\Users\Hello\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Messenger.-1310015387.00" t="ExcludeRecursive" />
     <e p="C:\Users\Hello\AppData\Roaming\JetBrains\Rider2020.2\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\Hello\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
-    <e p="C:\Users\Hello\source\repos\Messenger" t="IncludeFlat">
+    <e p="C:\Users\Hello\source\repos\Messenger" t="IncludeRecursive">
+      <e p=".dockerignore" t="Include" />
       <e p=".git\info\exclude" t="IncludeRecursive" />
       <e p="Auth" t="IncludeRecursive">
+        <e p=".dockerignore" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="Auth.csproj" t="IncludeRecursive" />
@@ -19,9 +21,12 @@
           <e p="AuthController.cs" t="Include" />
           <e p="AuthOptions.cs" t="Include" />
         </e>
+        <e p="DockerFile" t="Include" />
+        <e p="Dockerfile.original" t="Include" />
+        <e p="Logs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="net60" t="Include">
+            <e p="net6.0" t="Include">
               <e p="Auth.AssemblyInfo.cs" t="Include" />
               <e p="Auth.RazorAssemblyInfo.cs" t="Include" />
             </e>
@@ -35,6 +40,7 @@
           <e p="Startup.cs" t="Include" />
         </e>
       </e>
+      <e p="bin" t="ExcludeRecursive" />
       <e p="Data" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Data.csproj" t="IncludeRecursive" />
@@ -78,7 +84,11 @@
           <e p="UnitOfWork.cs" t="Include" />
         </e>
       </e>
+      <e p="docker-compose.dcproj" t="IncludeRecursive" />
+      <e p="docker-compose.override.yml" t="Include" />
+      <e p="docker-compose.yml" t="Include" />
       <e p="Messenger.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Src" t="Include" />
     </e>
