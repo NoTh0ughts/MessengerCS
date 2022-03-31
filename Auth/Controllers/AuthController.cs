@@ -65,27 +65,7 @@ namespace Auth.Controllers
 
             return Ok(response);
         }
-
-        /// <summary>
-        /// Проверка токена
-        /// </summary>
-        /// <returns>Возвращает имя пользователя, иначе 401 ошибку</returns>
-        [HttpPost("/check")]
-        [Authorize]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(UserDTO))]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public IActionResult TestToken()
-        {
-            var response = new UserDTO
-            {
-                Username = User.Identity.Name,
-                IsAdmin = ((ClaimsIdentity)User.Identity).Claims
-                    .Where(c => c.Type == ClaimTypes.Role)
-                    .Select(c => c.Value).FirstOrDefault(c => c == "Admin") != null
-            };
-
-            return Ok(response);
-        }
+        
 
         /// <summary>
         /// Создание пользователя. По умолчанию доступ User

@@ -87,6 +87,27 @@
       <e p="docker-compose.dcproj" t="IncludeRecursive" />
       <e p="docker-compose.override.yml" t="Include" />
       <e p="docker-compose.yml" t="Include" />
+      <e p="Messages" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DockerFile" t="Include" />
+        <e p="Messages.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net6.0" t="Include">
+              <e p="Messages.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Service" t="Include">
+          <e p="Startup.cs" t="Include" />
+        </e>
+      </e>
       <e p="Messenger.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
