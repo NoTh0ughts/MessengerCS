@@ -5,9 +5,9 @@ using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using Auth.Configs;
 using Data.Entity;
 using Data.UnitOfWork;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -37,6 +37,16 @@ namespace Auth.Controllers
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(string))]
         public IActionResult Login(string? login, string? password)
         {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
             if (login == null || password == null || login.Length == 0 || password.Length == 0)
             {
                 return UnprocessableEntity("Введено пустое поле");
@@ -125,6 +135,7 @@ namespace Auth.Controllers
         {
             var hashPass = CalcHash(password);
             var person = unitOfWork.DbContext.Users.FirstOrDefault(x => x.Name == username && x.Password == hashPass);
+            
             // если пользователь не найден
             if (person == null) return null;
             var claims = new List<Claim>

@@ -6,3 +6,8 @@ services:
     build:
       context: .
       dockerfile: Auth/Dockerfile
+  messages:
+    image: ${DOCKER_REGISTRY-}messages
+    build:
+      context: .
+      dockerfile: Messages/Dockerfile
