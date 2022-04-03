@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using BusinessLogic.Response;
 using Data.Entity;
 using Data.HostExtensions;
 using Data.Repos;
@@ -28,6 +29,7 @@ namespace Messages.Service
                 .AddCustomRepository<Dialog, GenericRepository<Dialog>>();
 
             services.AddMediatR(typeof(Startup));
+            services.AddTransient(typeof(ResponceFactory<>));
             
             services.AddSwaggerGen(c =>
             {
