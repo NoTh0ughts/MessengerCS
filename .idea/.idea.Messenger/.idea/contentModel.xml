@@ -19,7 +19,6 @@
         </e>
         <e p="Controllers" t="Include">
           <e p="AuthController.cs" t="Include" />
-          <e p="AuthOptions.cs" t="Include" />
         </e>
         <e p="DockerFile" t="Include" />
         <e p="Dockerfile.original" t="Include" />
@@ -91,12 +90,16 @@
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="MessageController.cs" t="Include" />
+        </e>
         <e p="DockerFile" t="Include" />
         <e p="Messages.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="net6.0" t="Include">
               <e p="Messages.AssemblyInfo.cs" t="Include" />
+              <e p="Messages.RazorAssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
