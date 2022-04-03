@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
+using BusinessLogic.Response;
 using Data.Entity;
 using Data.UnitOfWork;
 using MediatR;
 using Messages.Commands;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Messages.Controllers
@@ -25,15 +27,18 @@ namespace Messages.Controllers
         /// </summary>
         /// <returns></returns>
         [Authorize]
-        public async Task<IAsyncResult> SendMessage(int dialogId, string textMessage)
-        {    
-            var messageId = await mediator.Send(new SendMessageCommand {
-                
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(SendMessageResponce))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponce))]
+        public async Task<IActionResult> SendMessage(int dialogId, string textMessage)
+        {
+            SendMessageCommand request = new SendMessageCommand
+            {
+                DialogId = dialogId,
+                TextMessage = textMessage,
+                UserId = HttpContext.User.GetUserId()
+            };
 
-            });
-
-
-            return null;
+            return 
         }
     }
 }
