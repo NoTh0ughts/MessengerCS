@@ -28,8 +28,7 @@ namespace Messages.Commands
         public async Task<Result<DeleteMessageResponce>> Handle(DeleteMessageComand request, CancellationToken cancellationToken)
         {
             var user = await unitOfWork.DbContext.Users.AsNoTracking()
-                    .Where(x => x.Id == request.UserId)
-                    .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(x => x.Id == request.UserId);
 
             if (user is null)
             {
@@ -40,8 +39,7 @@ namespace Messages.Commands
             }
 
             var userAccess = await unitOfWork.DbContext.UserAccesses.AsNoTracking()
-                    .Where(x => x.UserId == user.Id && x.DialogId == request.DialogId)
-                    .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(x => x.UserId == user.Id && x.DialogId == request.DialogId);
 
             if (userAccess is null)
             {
@@ -52,8 +50,8 @@ namespace Messages.Commands
             }
 
             var messageToDelete = await unitOfWork.DbContext.Messages.AsNoTracking()
-                    .Where(x => x.UserAccessId == userAccess.Id && x.Id == request.MessageId)
-                    .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(x => x.UserAccessId == userAccess.Id && x.Id == request.MessageId);
+                
             if (messageToDelete is null)
             {
                  const string errorMessage = ResponceMessageCodes.MessageNotFound;
