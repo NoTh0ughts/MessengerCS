@@ -5,7 +5,7 @@ namespace BusinessLogic.Constants
 {
     public static class ResponceMessageCodes
     {
-        public static readonly Dictionary<string, string> ErrorDictionary = new()
+        public static readonly Dictionary<string, string> ErrorDictionary = new Dictionary<string, string>
         {
             {InvalidOrExpiredRefreshToken, "Your refresh token is invalid or expired."},
             {UserAlreadyExists, "User already exists in the system."},

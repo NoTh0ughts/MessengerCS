@@ -9,20 +9,21 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using BusinessLogic.Constants;
 
+
 namespace Messages.Commands 
 {
-    public class SendMessageCommandHandler : IRequestHandler<SendMessageCommand, Result<SendMessageResponce>>
+    public class EditMessageCommandHandler : IRequestHandler<EditMessageCommand, Result<EditMessageResponce>>
     {
         private IUnitOfWork<MessengerContext> unitOfWork;
-        private ResponceFactory<SendMessageResponce> responceFactory;
+        private ResponceFactory<EditMessageResponce> responceFactory;
 
-        public SendMessageCommandHandler(IUnitOfWork<MessengerContext> unitOfWork, ResponceFactory<SendMessageResponce> responceFactory)
+        public EditMessageCommandHandler(IUnitOfWork<MessengerContext> unitOfWork, ResponceFactory<EditMessageResponce> responceFactory)
         {
             this.unitOfWork = unitOfWork;
             this.responceFactory = responceFactory;
         }
 
-        public async Task<Result<SendMessageResponce>> Handle(SendMessageCommand request, CancellationToken cancellationToken)
+        public async Task<Result<EditMessageResponce>> Handle(EditMessageCommand request, CancellationToken cancellationToken)
         {
             var user = await unitOfWork.DbContext.Users.AsNoTracking()
                     .Select(x => new 
@@ -30,7 +31,6 @@ namespace Messages.Commands
                         x.Name,
                         x.Id
                     }).FirstOrDefaultAsync(x => x.Id == request.UserId, cancellationToken);
-            
             if (user is null)
             {
                 const string errorMessage = ResponceMessageCodes.UserNotFound;
@@ -39,13 +39,22 @@ namespace Messages.Commands
                 return responceFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
+            var message = await unitOfWork.DbContext.Messages.AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == request.MessageId);
+            if (message is null)
+            {
+                const string errorMessage = ResponceMessageCodes.MessageNotFound;
+                var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
+
+                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+            }
+            
             var userAccess = await unitOfWork.DbContext.UserAccesses.AsNoTracking()
-                .Select(x => new 
+                .Select(x => new
                 {
-                    x.Dialog,
                     x.UserId,
                     x.Id
-                }).FirstOrDefaultAsync(x => x.Dialog.Id == request.DialogId);
+                }).FirstOrDefaultAsync(x => x.UserId == request.UserId && x.Id == message.UserAccessId);
 
             if(userAccess is null)
             {
@@ -55,21 +64,10 @@ namespace Messages.Commands
                 return responceFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
-            var message = new Message
-            {
-                TextMessage = request.TextMessage,
-                UserAccessId = userAccess.Id,
-                SendDate = DateTime.Now,
-            };
+            message.TextMessage = request.NewText;
+            unitOfWork.DbContext.Messages.Update(message);
 
-            // TODO: MB need add updatedAt to dialog table
-
-            var entry = unitOfWork.DbContext.Messages.Add(message);
-
-            await unitOfWork.DbContext.SaveChangesAsync(cancellationToken);
-
-
-            return responceFactory.SuccessResponse(SendMessageResponce.FromSuccess(message.Id));
+            return responceFactory.SuccessResponse(EditMessageResponce.FromSuccess(message));
         }
     }
 }

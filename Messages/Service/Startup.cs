@@ -26,6 +26,7 @@ namespace Messages.Service
                 .AddDbContext<MessengerContext>()
                 .AddUnitOfWork<MessengerContext>()
                 .AddCustomRepository<Message, GenericRepository<Message>>()
+                .AddCustomRepository<UserAccess, GenericRepository<UserAccess>>()
                 .AddCustomRepository<Dialog, GenericRepository<Dialog>>();
 
             services.AddMediatR(typeof(Startup));
