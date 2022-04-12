@@ -51,10 +51,10 @@ namespace Messages.Commands
 
             var messageToDelete = await unitOfWork.DbContext.Messages.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.UserAccessId == userAccess.Id && x.Id == request.MessageId);
-                
+
             if (messageToDelete is null)
             {
-                 const string errorMessage = ResponceMessageCodes.MessageNotFound;
+                const string errorMessage = ResponceMessageCodes.MessageNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
                 return responceFactory.ConflictResponce(errorMessage, errorDescription);
