@@ -45,7 +45,7 @@ namespace Messages.Commands
                     x.Dialog,
                     x.UserId,
                     x.Id
-                }).FirstOrDefaultAsync(x => x.Dialog.Id == request.DialogId);
+                }).FirstOrDefaultAsync(x => x.Dialog.Id == request.DialogId, cancellationToken: cancellationToken);
 
             if(userAccess is null)
             {
@@ -64,11 +64,10 @@ namespace Messages.Commands
 
             // TODO: MB need add updatedAt to dialog table
 
-            var entry = unitOfWork.DbContext.Messages.Add(message);
+            var entry = await unitOfWork.DbContext.Messages.AddAsync(message, cancellationToken);
 
             await unitOfWork.DbContext.SaveChangesAsync(cancellationToken);
-
-
+            
             return responceFactory.SuccessResponse(SendMessageResponce.FromSuccess(message.Id));
         }
     }

@@ -1,4 +1,3 @@
-using System;
 using Data.UnitOfWork;
 using MediatR;
 using BusinessLogic.Response;
@@ -6,7 +5,6 @@ using System.Threading.Tasks;
 using System.Threading;
 using Data.Entity;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using BusinessLogic.Constants;
 
 namespace Messages.Commands

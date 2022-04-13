@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using BusinessLogic.Constants;
 
-
 namespace Messages.Commands 
 {
     public class EditMessageCommandHandler : IRequestHandler<EditMessageCommand, Result<EditMessageResponce>>
