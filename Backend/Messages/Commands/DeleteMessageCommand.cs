@@ -4,7 +4,7 @@ using BusinessLogic.Response;
 
 namespace Messages.Commands
 {
-    public class DeleteMessageComand : IRequest<Result<DeleteMessageResponce>>
+    public class DeleteMessageComand : IRequest<Result<DeleteMessageResponse>>
     {
         public int UserId {get;set;}
         public int MessageId {get;set;}

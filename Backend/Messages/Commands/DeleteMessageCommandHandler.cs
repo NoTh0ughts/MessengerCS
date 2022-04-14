@@ -1,4 +1,3 @@
-using System;
 using Data.UnitOfWork;
 using MediatR;
 using BusinessLogic.Response;
@@ -6,26 +5,25 @@ using System.Threading.Tasks;
 using System.Threading;
 using Data.Entity;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using BusinessLogic.Constants;
 
 namespace Messages.Commands
 {
-    public class DeleteMessageCommandHandler : IRequestHandler<DeleteMessageComand, Result<DeleteMessageResponce>>
+    public class DeleteMessageCommandHandler : IRequestHandler<DeleteMessageComand, Result<DeleteMessageResponse>>
     {
         private IUnitOfWork<MessengerContext> unitOfWork;
-        private ResponceFactory<DeleteMessageResponce> responceFactory;
+        private ResponceFactory<DeleteMessageResponse> responceFactory;
 
 
         public DeleteMessageCommandHandler(IUnitOfWork<MessengerContext> unitOfWork, 
-        ResponceFactory<DeleteMessageResponce> responceFactory)
+        ResponceFactory<DeleteMessageResponse> responceFactory)
         {
             this.unitOfWork = unitOfWork;
             this.responceFactory = responceFactory;
         }
 
 
-        public async Task<Result<DeleteMessageResponce>> Handle(DeleteMessageComand request, CancellationToken cancellationToken)
+        public async Task<Result<DeleteMessageResponse>> Handle(DeleteMessageComand request, CancellationToken cancellationToken)
         {
             var user = await unitOfWork.DbContext.Users.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == request.UserId);
@@ -64,7 +62,7 @@ namespace Messages.Commands
             
             await unitOfWork.DbContext.SaveChangesAsync(cancellationToken);
 
-            return responceFactory.SuccessResponse(DeleteMessageResponce.FromSuccess());
+            return responceFactory.SuccessResponse(DeleteMessageResponse.FromSuccess());
         }
     }
 }

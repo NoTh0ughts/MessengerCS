@@ -4,7 +4,7 @@ using BusinessLogic.Response;
 
 namespace Messages.Commands
 {
-    public class SendMessageCommand : IRequest<Result<SendMessageResponce>>
+    public class SendMessageCommand : IRequest<Result<SendMessageResponse>>
     {
         public int UserId {get;set;}
         public string TextMessage {get;set;}

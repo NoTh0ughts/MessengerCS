@@ -5,10 +5,10 @@ using Data.Entity;
 
 namespace Messages.Commands
 {
-    public record EditMessageResponce : BaseResponce<EditMessageResponce>
+    public record EditMessageResponse : BaseResponce<EditMessageResponse>
     {
         public Message EditedMessage {get;set;}
-        public static EditMessageResponce FromSuccess(Message message)
+        public static EditMessageResponse FromSuccess(Message message)
         {
             return new()
             {

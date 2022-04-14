@@ -11,18 +11,18 @@ using BusinessLogic.Constants;
 
 namespace Messages.Commands 
 {
-    public class SendMessageCommandHandler : IRequestHandler<SendMessageCommand, Result<SendMessageResponce>>
+    public class SendMessageCommandHandler : IRequestHandler<SendMessageCommand, Result<SendMessageResponse>>
     {
         private IUnitOfWork<MessengerContext> unitOfWork;
-        private ResponceFactory<SendMessageResponce> responceFactory;
+        private ResponceFactory<SendMessageResponse> responceFactory;
 
-        public SendMessageCommandHandler(IUnitOfWork<MessengerContext> unitOfWork, ResponceFactory<SendMessageResponce> responceFactory)
+        public SendMessageCommandHandler(IUnitOfWork<MessengerContext> unitOfWork, ResponceFactory<SendMessageResponse> responceFactory)
         {
             this.unitOfWork = unitOfWork;
             this.responceFactory = responceFactory;
         }
 
-        public async Task<Result<SendMessageResponce>> Handle(SendMessageCommand request, CancellationToken cancellationToken)
+        public async Task<Result<SendMessageResponse>> Handle(SendMessageCommand request, CancellationToken cancellationToken)
         {
             var user = await unitOfWork.DbContext.Users.AsNoTracking()
                     .Select(x => new 
@@ -45,7 +45,7 @@ namespace Messages.Commands
                     x.Dialog,
                     x.UserId,
                     x.Id
-                }).FirstOrDefaultAsync(x => x.Dialog.Id == request.DialogId);
+                }).FirstOrDefaultAsync(x => x.Dialog.Id == request.DialogId, cancellationToken: cancellationToken);
 
             if(userAccess is null)
             {
@@ -64,12 +64,11 @@ namespace Messages.Commands
 
             // TODO: MB need add updatedAt to dialog table
 
-            var entry = unitOfWork.DbContext.Messages.Add(message);
+            var entry = await unitOfWork.DbContext.Messages.AddAsync(message, cancellationToken);
 
             await unitOfWork.DbContext.SaveChangesAsync(cancellationToken);
-
-
-            return responceFactory.SuccessResponse(SendMessageResponce.FromSuccess(message.Id));
+            
+            return responceFactory.SuccessResponse(SendMessageResponse.FromSuccess(message.Id));
         }
     }
 }

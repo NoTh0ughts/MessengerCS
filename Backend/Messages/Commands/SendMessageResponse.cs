@@ -5,10 +5,10 @@ using BusinessLogic.Constants;
 
 namespace Messages.Commands
 {
-    public record SendMessageResponce : BaseResponce<SendMessageResponce>
+    public record SendMessageResponse : BaseResponce<SendMessageResponse>
     {
         public int MessageId {get; init;}
-        public static SendMessageResponce FromSuccess(int messageId)
+        public static SendMessageResponse FromSuccess(int messageId)
         {
             return new()
             {

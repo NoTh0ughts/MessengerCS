@@ -11,3 +11,13 @@ services:
     build:
       context: .
       dockerfile: Messages/Dockerfile
+  users:
+    image: ${DOCKER_REGISTRY-}user
+    build:
+      context: .
+      dockerfile: User/Dockerfile
+  dialog:
+    image: ${DOCKER_REGISTRY-}dialog
+    build:
+      context: .
+      dockerfile: Dialog/Dockerfile

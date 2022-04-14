@@ -20,7 +20,7 @@ namespace Messages.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(SendMessageResponce))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(SendMessageResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponce))]
         public async Task<IActionResult> SendMessage(int dialogId, string textMessage)
         {
@@ -34,7 +34,7 @@ namespace Messages.Controllers
             return await RequestAsync(request, default);
         }
 
-        [HttpPost]
+        [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(DeleteMessageComand))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponce))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorResponce))]
