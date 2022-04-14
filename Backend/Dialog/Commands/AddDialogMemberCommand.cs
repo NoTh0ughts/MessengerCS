@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Dialog.Commands
 {
-    public class AddDialogMemberCommand : IRequest<Result<AddDialogMemberResponce>>
+    public class AddDialogMemberCommand : IRequest<Result<AddDialogMemberResponse>>
     {
         public int InvitedUserId { get; set; }
         public int DialogId { get; set; }

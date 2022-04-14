@@ -13,7 +13,7 @@ namespace Dialog.Controllers
         public DialogController(IMediator mediator) : base(mediator) {}
 
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AddDialogMemberResponce))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AddDialogMemberResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponce))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorResponce))]
         public async Task<IActionResult> AddDialogMember(int userId, int dialogId)
@@ -26,6 +26,12 @@ namespace Dialog.Controllers
             };
 
             return await RequestAsync(request, default);
+        }
+
+        public async Task<IActionResult> DeleteDialogMember(int userId, int dialogId)
+        {
+
+            return null;
         }
     }
 }

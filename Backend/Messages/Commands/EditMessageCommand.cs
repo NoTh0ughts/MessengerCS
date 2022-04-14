@@ -4,7 +4,7 @@ using BusinessLogic.Response;
 
 namespace Messages.Commands
 {
-    public class EditMessageCommand : IRequest<Result<EditMessageResponce>>
+    public class EditMessageCommand : IRequest<Result<EditMessageResponse>>
     {
         public int UserId {get;set;}
         public string NewText {get;set;}

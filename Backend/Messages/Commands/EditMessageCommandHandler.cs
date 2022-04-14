@@ -11,18 +11,18 @@ using BusinessLogic.Constants;
 
 namespace Messages.Commands 
 {
-    public class EditMessageCommandHandler : IRequestHandler<EditMessageCommand, Result<EditMessageResponce>>
+    public class EditMessageCommandHandler : IRequestHandler<EditMessageCommand, Result<EditMessageResponse>>
     {
         private IUnitOfWork<MessengerContext> unitOfWork;
-        private ResponceFactory<EditMessageResponce> responceFactory;
+        private ResponceFactory<EditMessageResponse> responceFactory;
 
-        public EditMessageCommandHandler(IUnitOfWork<MessengerContext> unitOfWork, ResponceFactory<EditMessageResponce> responceFactory)
+        public EditMessageCommandHandler(IUnitOfWork<MessengerContext> unitOfWork, ResponceFactory<EditMessageResponse> responceFactory)
         {
             this.unitOfWork = unitOfWork;
             this.responceFactory = responceFactory;
         }
 
-        public async Task<Result<EditMessageResponce>> Handle(EditMessageCommand request, CancellationToken cancellationToken)
+        public async Task<Result<EditMessageResponse>> Handle(EditMessageCommand request, CancellationToken cancellationToken)
         {
             var user = await unitOfWork.DbContext.Users.AsNoTracking()
                     .Select(x => new 
@@ -66,7 +66,7 @@ namespace Messages.Commands
             message.TextMessage = request.NewText;
             unitOfWork.DbContext.Messages.Update(message);
 
-            return responceFactory.SuccessResponse(EditMessageResponce.FromSuccess(message));
+            return responceFactory.SuccessResponse(EditMessageResponse.FromSuccess(message));
         }
     }
 }

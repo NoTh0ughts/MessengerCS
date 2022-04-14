@@ -11,18 +11,18 @@ using Microsoft.EntityFrameworkCore;
 namespace Dialog.Commands
 {
     public class AddDialogMemberCommandHandler :
-        IRequestHandler<AddDialogMemberCommand, Result<AddDialogMemberResponce>>
+        IRequestHandler<AddDialogMemberCommand, Result<AddDialogMemberResponse>>
     {
         private IUnitOfWork<MessengerContext> unitOfWork;
-        private ResponceFactory<AddDialogMemberResponce> responceFactory;
+        private ResponceFactory<AddDialogMemberResponse> responceFactory;
 
         public AddDialogMemberCommandHandler(IUnitOfWork<MessengerContext> unitOfWork,
-            ResponceFactory<AddDialogMemberResponce> responceFactory)
+            ResponceFactory<AddDialogMemberResponse> responceFactory)
         {
             this.unitOfWork = unitOfWork;
             this.responceFactory = responceFactory;
         }
-        public async Task<Result<AddDialogMemberResponce>> Handle(AddDialogMemberCommand request, CancellationToken cancellationToken)
+        public async Task<Result<AddDialogMemberResponse>> Handle(AddDialogMemberCommand request, CancellationToken cancellationToken)
         {
             var invitingUser = await unitOfWork.DbContext.Users.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == request.InvitingUserId, cancellationToken);
@@ -75,7 +75,7 @@ namespace Dialog.Commands
             await unitOfWork.DbContext.UserAccesses.AddAsync(access, cancellationToken);
             await unitOfWork.SaveChangesAsync();
             
-            return responceFactory.SuccessResponse(AddDialogMemberResponce.FromSuccess());
+            return responceFactory.SuccessResponse(AddDialogMemberResponse.FromSuccess());
         }
     }
 }

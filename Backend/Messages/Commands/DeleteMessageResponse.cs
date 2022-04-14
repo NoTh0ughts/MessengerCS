@@ -3,9 +3,9 @@ using BusinessLogic.Constants;
 
 namespace Messages.Commands
 {
-    public record DeleteMessageResponce : BaseResponce<DeleteMessageResponce>
+    public record DeleteMessageResponse : BaseResponce<DeleteMessageResponse>
     {
-        public static DeleteMessageResponce FromSuccess() => new()
+        public static DeleteMessageResponse FromSuccess() => new()
         {
             Success = true,
             Message = ResponceMessageCodes.Success

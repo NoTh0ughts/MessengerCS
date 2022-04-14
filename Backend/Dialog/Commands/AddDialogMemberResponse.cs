@@ -3,9 +3,9 @@ using BusinessLogic.Response;
 
 namespace Dialog.Commands
 {
-    public record AddDialogMemberResponce : BaseResponce<AddDialogMemberResponce>
+    public record AddDialogMemberResponse : BaseResponce<AddDialogMemberResponse>
     {
-        public static AddDialogMemberResponce FromSuccess() => new()
+        public static AddDialogMemberResponse FromSuccess() => new()
         {
             Success = true,
             Message = ResponceMessageCodes.Success
