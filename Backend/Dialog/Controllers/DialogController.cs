@@ -28,10 +28,20 @@ namespace Dialog.Controllers
             return await RequestAsync(request, default);
         }
 
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AddDialogMemberResponse))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponce))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorResponce))]
         public async Task<IActionResult> DeleteDialogMember(int userId, int dialogId)
         {
-
-            return null;
+            DeleteDialogMemberCommand request = new DeleteDialogMemberCommand
+            {
+                DeletedUserId = userId,
+                DialogId = dialogId,
+                DeletingUserId = HttpContext.User.GetUserId()
+            };
+            
+            return await RequestAsync(request, default);
         }
     }
 }

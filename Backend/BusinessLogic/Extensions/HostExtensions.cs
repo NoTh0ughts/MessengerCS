@@ -51,7 +51,7 @@ public static class HostExtensions
 
     public static IServiceCollection AddResponceFactory(this IServiceCollection services)
     {
-        return services.AddTransient(typeof(ResponceFactory<>));
+        return services.AddTransient(typeof(ResponseFactory<>));
     }
 
     public static IServiceCollection AddApiStuff(this IServiceCollection services, Type startupType)

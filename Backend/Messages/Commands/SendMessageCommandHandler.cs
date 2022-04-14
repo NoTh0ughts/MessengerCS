@@ -14,12 +14,12 @@ namespace Messages.Commands
     public class SendMessageCommandHandler : IRequestHandler<SendMessageCommand, Result<SendMessageResponse>>
     {
         private IUnitOfWork<MessengerContext> unitOfWork;
-        private ResponceFactory<SendMessageResponse> responceFactory;
+        private ResponseFactory<SendMessageResponse> _responseFactory;
 
-        public SendMessageCommandHandler(IUnitOfWork<MessengerContext> unitOfWork, ResponceFactory<SendMessageResponse> responceFactory)
+        public SendMessageCommandHandler(IUnitOfWork<MessengerContext> unitOfWork, ResponseFactory<SendMessageResponse> responseFactory)
         {
             this.unitOfWork = unitOfWork;
-            this.responceFactory = responceFactory;
+            this._responseFactory = responseFactory;
         }
 
         public async Task<Result<SendMessageResponse>> Handle(SendMessageCommand request, CancellationToken cancellationToken)
@@ -36,7 +36,7 @@ namespace Messages.Commands
                 const string errorMessage = ResponceMessageCodes.UserNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
-                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+                return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
             var userAccess = await unitOfWork.DbContext.UserAccesses.AsNoTracking()
@@ -52,7 +52,7 @@ namespace Messages.Commands
                 const string errorMessage = ResponceMessageCodes.ChatNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
-                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+                return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
             var message = new Message
@@ -68,7 +68,7 @@ namespace Messages.Commands
 
             await unitOfWork.DbContext.SaveChangesAsync(cancellationToken);
             
-            return responceFactory.SuccessResponse(SendMessageResponse.FromSuccess(message.Id));
+            return _responseFactory.SuccessResponse(SendMessageResponse.FromSuccess(message.Id));
         }
     }
 }

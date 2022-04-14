@@ -10,23 +10,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Dialog.Commands
 {
-    public class AddDialogMemberCommandHandler :
-        IRequestHandler<AddDialogMemberCommand, Result<AddDialogMemberResponse>>
+    public class DeleteDialogMemberCommandHandler :
+        IRequestHandler<DeleteDialogMemberCommand, Result<DeleteDialogMemberResponse>>
     {
         private IUnitOfWork<MessengerContext> unitOfWork;
-        private ResponseFactory<AddDialogMemberResponse> _responseFactory;
+        private ResponseFactory<DeleteDialogMemberResponse> _responseFactory;
 
-        public AddDialogMemberCommandHandler(IUnitOfWork<MessengerContext> unitOfWork,
-            ResponseFactory<AddDialogMemberResponse> responseFactory)
+        
+        public DeleteDialogMemberCommandHandler
+            (IUnitOfWork<MessengerContext> unitOfWork, ResponseFactory<DeleteDialogMemberResponse> responseFactory)
         {
             this.unitOfWork = unitOfWork;
             this._responseFactory = responseFactory;
         }
-        public async Task<Result<AddDialogMemberResponse>> Handle(AddDialogMemberCommand request, CancellationToken cancellationToken)
+        
+        public async Task<Result<DeleteDialogMemberResponse>> Handle
+            (DeleteDialogMemberCommand request, CancellationToken cancellationToken)
         {
-            var invitingUser = await unitOfWork.DbContext.Users.AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Id == request.InvitingUserId, cancellationToken);
-            if (invitingUser is null)
+             var deletingUser = await unitOfWork.DbContext.Users.AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == request.DeletingUserId, cancellationToken);
+            if (deletingUser is null)
             {
                 const string errorMessage = ResponceMessageCodes.UserNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
@@ -34,9 +37,9 @@ namespace Dialog.Commands
                 return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
-            var invitedUser = await unitOfWork.DbContext.Users.AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Id == request.InvitedUserId, cancellationToken);
-            if (invitedUser is null)
+            var deletedUser = await unitOfWork.DbContext.Users.AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == request.DeletedUserId, cancellationToken);
+            if (deletedUser is null)
             {
                 const string errorMessage = ResponceMessageCodes.UserNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
@@ -45,7 +48,7 @@ namespace Dialog.Commands
             }
 
             var haveAccess = await unitOfWork.DbContext.UserAccesses.AsNoTracking()
-                .AnyAsync(x => x.UserId == invitingUser.Id && 
+                .AnyAsync(x => x.UserId == deletingUser.Id && 
                                x.DialogId == request.DialogId, cancellationToken);
 
             if (haveAccess == false)
@@ -56,26 +59,21 @@ namespace Dialog.Commands
                 return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
-            var alreadyHaveAccess = unitOfWork.DbContext.UserAccesses.AsNoTracking()
-                .Any(x => x.DialogId == request.DialogId && x.UserId == request.InvitedUserId);
-            if (alreadyHaveAccess == true)
+            var access = await unitOfWork.DbContext.UserAccesses.AsNoTracking()
+                .FirstOrDefaultAsync(x => x.UserId == request.DeletedUserId && 
+                                          x.DialogId == request.DialogId, cancellationToken);
+
+            if (access is null)
             {
-                const string errorMessage = ResponceMessageCodes.UserAlreadyJoinedGroup;
+                const string errorMessage = ResponceMessageCodes.ChatNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
                 return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
-            var access = new UserAccess
-            {
-                DialogId = request.DialogId,
-                UserId = request.InvitedUserId
-            };
-
-            await unitOfWork.DbContext.UserAccesses.AddAsync(access, cancellationToken);
-            await unitOfWork.SaveChangesAsync();
+            unitOfWork.DbContext.UserAccesses.Remove(access);
             
-            return _responseFactory.SuccessResponse(AddDialogMemberResponse.FromSuccess());
+            return _responseFactory.SuccessResponse(DeleteDialogMemberResponse.FromSuccess());
         }
     }
 }
