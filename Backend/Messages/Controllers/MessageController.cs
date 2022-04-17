@@ -35,7 +35,7 @@ namespace Messages.Controllers
         }
 
         [HttpDelete]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(DeleteMessageComand))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(DeleteMessageResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponce))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorResponce))]
         public async Task<IActionResult> DeleteMessage(int messageId, int dialogId)
@@ -51,7 +51,7 @@ namespace Messages.Controllers
         }
 
         [HttpPut]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EditMessageCommand))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EditMessageResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponce))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorResponce))]
         public async Task<IActionResult> EditMessage(int messageId, int dialogId, string newText)
