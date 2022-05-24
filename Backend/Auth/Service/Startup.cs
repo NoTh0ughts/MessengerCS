@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Auth.Controllers;
 using BusinessLogic.Extensions;
 using Data.Entity;
 using Data.HostExtensions;
@@ -8,6 +9,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using MediatR;
+using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace Auth.Service
@@ -61,7 +64,12 @@ namespace Auth.Service
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
             app.ConfigureStuff(env);
+
         }
     }
 }

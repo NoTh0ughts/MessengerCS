@@ -1,19 +1,15 @@
 version: '3.4'
 
-networks:
-  api:
-
 services:
   nginx:
     container_name: nginx-server
     hostname: nginxserver
     image: nginx
-    
+    volumes:
+      - ./nginx/:/etc/nginx/conf.d/
     restart: unless-stopped
     ports:
-      - 5000:80
-    networks:
-      - api
+      - 4000:80
     depends_on:
       - auth
       - messages
@@ -26,33 +22,36 @@ services:
     build:
       context: .
       dockerfile: Auth/Dockerfile
-    networks:
-        - api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://0.0.0.0:5000
       
   messages:
     container_name: mess_con
     image: ${DOCKER_REGISTRY-}messages
-    networks:
-      - api
     build:
       context: .
       dockerfile: Messages/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://0.0.0.0:5000
       
   users:
     container_name: user_con
     image: ${DOCKER_REGISTRY-}user
-    networks:
-      - api
     build:
       context: .
       dockerfile: User/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://0.0.0.0:5000
       
   dialog:
     container_name: dial_con
     image: ${DOCKER_REGISTRY-}dialog
-    networks:
-      - api
     build:
       context: .
       dockerfile: Dialog/Dockerfile
-      
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://0.0.0.0:5000
