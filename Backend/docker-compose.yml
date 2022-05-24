@@ -1,23 +1,58 @@
 version: '3.4'
 
+networks:
+  api:
+
 services:
+  nginx:
+    container_name: nginx-server
+    hostname: nginxserver
+    image: nginx
+    
+    restart: unless-stopped
+    ports:
+      - 5000:80
+    networks:
+      - api
+    depends_on:
+      - auth
+      - messages
+      - users
+      - dialog
+
   auth:
+    container_name: auth_con
     image: ${DOCKER_REGISTRY-}auth
     build:
       context: .
       dockerfile: Auth/Dockerfile
+    networks:
+        - api
+      
   messages:
+    container_name: mess_con
     image: ${DOCKER_REGISTRY-}messages
+    networks:
+      - api
     build:
       context: .
       dockerfile: Messages/Dockerfile
+      
   users:
+    container_name: user_con
     image: ${DOCKER_REGISTRY-}user
+    networks:
+      - api
     build:
       context: .
       dockerfile: User/Dockerfile
+      
   dialog:
+    container_name: dial_con
     image: ${DOCKER_REGISTRY-}dialog
+    networks:
+      - api
     build:
       context: .
       dockerfile: Dialog/Dockerfile
+      

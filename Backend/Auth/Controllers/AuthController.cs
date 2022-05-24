@@ -14,6 +14,9 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Auth.Controllers
 {
+    /// <summary>
+    /// Example
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
