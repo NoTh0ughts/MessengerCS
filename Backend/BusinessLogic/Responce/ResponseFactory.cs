@@ -2,7 +2,7 @@ using System.Net;
 
 namespace BusinessLogic.Response
 {
-    public class ResponceFactory<TResponce> where TResponce : BaseResponce
+    public class ResponseFactory<TResponce> where TResponce : BaseResponce
     {
         public Result<TResponce> ConflictResponce(string message, string description)
         {

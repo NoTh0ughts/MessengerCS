@@ -14,12 +14,12 @@ namespace Messages.Commands
     public class EditMessageCommandHandler : IRequestHandler<EditMessageCommand, Result<EditMessageResponse>>
     {
         private IUnitOfWork<MessengerContext> unitOfWork;
-        private ResponceFactory<EditMessageResponse> responceFactory;
+        private ResponseFactory<EditMessageResponse> _responseFactory;
 
-        public EditMessageCommandHandler(IUnitOfWork<MessengerContext> unitOfWork, ResponceFactory<EditMessageResponse> responceFactory)
+        public EditMessageCommandHandler(IUnitOfWork<MessengerContext> unitOfWork, ResponseFactory<EditMessageResponse> responseFactory)
         {
             this.unitOfWork = unitOfWork;
-            this.responceFactory = responceFactory;
+            this._responseFactory = responseFactory;
         }
 
         public async Task<Result<EditMessageResponse>> Handle(EditMessageCommand request, CancellationToken cancellationToken)
@@ -35,7 +35,7 @@ namespace Messages.Commands
                 const string errorMessage = ResponceMessageCodes.UserNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
-                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+                return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
             var message = await unitOfWork.DbContext.Messages.AsNoTracking()
@@ -45,7 +45,7 @@ namespace Messages.Commands
                 const string errorMessage = ResponceMessageCodes.MessageNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
-                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+                return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
             
             var userAccess = await unitOfWork.DbContext.UserAccesses.AsNoTracking()
@@ -60,13 +60,13 @@ namespace Messages.Commands
                 const string errorMessage = ResponceMessageCodes.ChatNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
-                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+                return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
             message.TextMessage = request.NewText;
             unitOfWork.DbContext.Messages.Update(message);
 
-            return responceFactory.SuccessResponse(EditMessageResponse.FromSuccess(message));
+            return _responseFactory.SuccessResponse(EditMessageResponse.FromSuccess(message));
         }
     }
 }

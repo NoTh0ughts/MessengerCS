@@ -14,13 +14,13 @@ namespace Dialog.Commands
         IRequestHandler<AddDialogMemberCommand, Result<AddDialogMemberResponse>>
     {
         private IUnitOfWork<MessengerContext> unitOfWork;
-        private ResponceFactory<AddDialogMemberResponse> responceFactory;
+        private ResponseFactory<AddDialogMemberResponse> _responseFactory;
 
         public AddDialogMemberCommandHandler(IUnitOfWork<MessengerContext> unitOfWork,
-            ResponceFactory<AddDialogMemberResponse> responceFactory)
+            ResponseFactory<AddDialogMemberResponse> responseFactory)
         {
             this.unitOfWork = unitOfWork;
-            this.responceFactory = responceFactory;
+            this._responseFactory = responseFactory;
         }
         public async Task<Result<AddDialogMemberResponse>> Handle(AddDialogMemberCommand request, CancellationToken cancellationToken)
         {
@@ -31,7 +31,7 @@ namespace Dialog.Commands
                 const string errorMessage = ResponceMessageCodes.UserNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
-                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+                return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
             var invitedUser = await unitOfWork.DbContext.Users.AsNoTracking()
@@ -41,7 +41,7 @@ namespace Dialog.Commands
                 const string errorMessage = ResponceMessageCodes.UserNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
-                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+                return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
             var haveAccess = await unitOfWork.DbContext.UserAccesses.AsNoTracking()
@@ -53,7 +53,7 @@ namespace Dialog.Commands
                 const string errorMessage = ResponceMessageCodes.PermissionDenied;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
-                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+                return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
             var alreadyHaveAccess = unitOfWork.DbContext.UserAccesses.AsNoTracking()
@@ -63,7 +63,7 @@ namespace Dialog.Commands
                 const string errorMessage = ResponceMessageCodes.UserAlreadyJoinedGroup;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
-                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+                return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
             var access = new UserAccess
@@ -75,7 +75,7 @@ namespace Dialog.Commands
             await unitOfWork.DbContext.UserAccesses.AddAsync(access, cancellationToken);
             await unitOfWork.SaveChangesAsync();
             
-            return responceFactory.SuccessResponse(AddDialogMemberResponse.FromSuccess());
+            return _responseFactory.SuccessResponse(AddDialogMemberResponse.FromSuccess());
         }
     }
 }

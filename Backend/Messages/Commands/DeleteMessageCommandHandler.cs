@@ -12,14 +12,14 @@ namespace Messages.Commands
     public class DeleteMessageCommandHandler : IRequestHandler<DeleteMessageComand, Result<DeleteMessageResponse>>
     {
         private IUnitOfWork<MessengerContext> unitOfWork;
-        private ResponceFactory<DeleteMessageResponse> responceFactory;
+        private ResponseFactory<DeleteMessageResponse> _responseFactory;
 
 
         public DeleteMessageCommandHandler(IUnitOfWork<MessengerContext> unitOfWork, 
-        ResponceFactory<DeleteMessageResponse> responceFactory)
+        ResponseFactory<DeleteMessageResponse> responseFactory)
         {
             this.unitOfWork = unitOfWork;
-            this.responceFactory = responceFactory;
+            this._responseFactory = responseFactory;
         }
 
 
@@ -33,7 +33,7 @@ namespace Messages.Commands
                 const string errorMessage = ResponceMessageCodes.UserNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
-                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+                return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
             var userAccess = await unitOfWork.DbContext.UserAccesses.AsNoTracking()
@@ -44,7 +44,7 @@ namespace Messages.Commands
                 const string errorMessage = ResponceMessageCodes.ChatNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
-                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+                return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
             var messageToDelete = await unitOfWork.DbContext.Messages.AsNoTracking()
@@ -55,14 +55,14 @@ namespace Messages.Commands
                 const string errorMessage = ResponceMessageCodes.MessageNotFound;
                 var errorDescription = ResponceMessageCodes.ErrorDictionary[errorMessage];
 
-                return responceFactory.ConflictResponce(errorMessage, errorDescription);
+                return _responseFactory.ConflictResponce(errorMessage, errorDescription);
             }
 
             unitOfWork.DbContext.Messages.Remove(messageToDelete);
             
             await unitOfWork.DbContext.SaveChangesAsync(cancellationToken);
 
-            return responceFactory.SuccessResponse(DeleteMessageResponse.FromSuccess());
+            return _responseFactory.SuccessResponse(DeleteMessageResponse.FromSuccess());
         }
     }
 }
