@@ -1,5 +1,14 @@
- # Messenger
-Мобильное приложение для обмена сообщениями. 
+<div id="MainTitle">
+
+# Серверное решение для мессенджера
+
+</div>
+
+<div id="SubTitle"> 
+
+### Микросервисное приложение для мобильного или десктопного мессенджера
+
+</div>
 
 # Команда и роли
 - <a href="https://github.com/kickSanchoz">Александр Васильев ИВТ-463 - Мобильное приложение</a>
@@ -14,21 +23,17 @@
 ---
 
 # Технологический стек
-## Серверное решение
-- ASP .NET Core 6.0 - платформа разработки.
-- C# 9.0 - версия языка.
-   ### Библиотеки
-   - Entity Framework Core 5.0 - ORM
-   - Pomelo.EntityFrameworkCore.MySQL 5.0.4 - провайдер данных
-   - System.IdentityModel.Jwt 6.16.0 - токенная авторизация
-   - EntityFramework 6.4.4 - работа с данными
-   - Newtonsoft.JSON 13.0.1 - сериализация/десериализация данных
-   - Swashbuckle.AspNetCore.Swagger 6.3.0 - автодокументация
-   - MediatR 10.0.1 - преобразование запросов в объекты
-   - MediatR.Extensions.Microsoft.DependencyInjection 10.0.1 - функции добавления медиатора в контейнер DI
-   - Microsoft.Extensions.DependencyInjection 6.0.0 - инъектирование зависимостей
-## Клиентское решение
-- ...
+### Серверное решение
+<div id="TechStack">
+
+* ASP.NET Core
+* EF 
+* MediatR
+
+</div>
+
+### Клиентское решение
+- Отсутствует
 
 ---
 
